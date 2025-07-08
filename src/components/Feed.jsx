@@ -5,7 +5,6 @@ import DailyInfo from './DailyInfo';
 import Welcome from './Welcome';
 import StatisticProgress from './StatisticProgress';
 import Tracking from './Tracking';
-import Loader from 'react-loader';
 import { motion, useInView } from 'framer-motion'
 
 // ✅ Dynamically import AreaCharts with SSR disabled
