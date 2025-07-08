@@ -39,8 +39,8 @@ const Order = dynamic(
     }
 );
 
-const wrapper={
-     hidden: {
+const wrapper = {
+    hidden: {
         opacity: 0,
         x: 40
     },
@@ -52,7 +52,7 @@ const wrapper={
             type: 'spring',
             stiffness: 50,
             damping: 20,
-            mass:0.6
+            mass: 0.6
         }
     },
 }
@@ -90,25 +90,17 @@ const itemVariants = {
 };
 
 const inViewVarient = {
-    hidden: {
-        opacity: 0,
-        y: 20
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.1,
-            type: 'spring',
-            stiffness: 120,
-            damping: 15,
-        }
-    }
-}
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
+
 
 const Feed = () => {
-    const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, amount: 0.6 })
+ 
     return (
         <motion.div initial='hidden' animate='visible' variants={wrapper} className='px-2 lg:px-5  text-white '>
             <DailyInfo />
@@ -144,7 +136,7 @@ const Feed = () => {
                 ref={ref}
                 variants={inViewVarient}
                 initial={'hidden'}
-                animate={isInView ? 'visible' : 'hidden'}
+                whileInView={'visible'}
                 className='w-full block lg:flex items-center gap-6  py-4 sm:py-8   '>
                 <div className='w-full lg:w-[70%] h-full'><DataTable /></div>
                 <div className=' w-full lg:w-[30%] h-full'><Order /></div>
