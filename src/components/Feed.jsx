@@ -1,11 +1,11 @@
 "use client"
-import React, { useRef } from 'react'
+import React from 'react'
 import dynamic from "next/dynamic"
 import DailyInfo from './DailyInfo';
 import Welcome from './Welcome';
 import StatisticProgress from './StatisticProgress';
 import Tracking from './Tracking';
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 // ✅ Dynamically import AreaCharts with SSR disabled
 // ✅ Fix: extract `.default` from the imported module
@@ -133,7 +133,6 @@ const Feed = () => {
 
 
             <motion.div
-                ref={ref}
                 variants={inViewVarient}
                 initial={'hidden'}
                 whileInView={'visible'}
