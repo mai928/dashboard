@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import { homeIcon, notificationIcon, profileIcon, searchIcon, settingsIcon } from "../../../data"
 import { motion } from 'framer-motion';
 import { useEffect, useState } from "react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 
 export default function Navbar({ parentToggle }) {
@@ -28,7 +29,7 @@ export default function Navbar({ parentToggle }) {
       initial={false}
       animate={isScrolled ? { opacity: 1 } : { opacity: 1 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className={`lg:fixed inset-0 lg:z-40 left-0 ${parentToggle ? 'md:left-24' : 'md:left-56'}  mx-[21px] h-28 transition-colors duration-300 text-white
+      className={`lg:fixed inset-0 lg:z-40 left-0 ${parentToggle ? 'md:left-24' : 'md:left-72'}  mx-[21px] h-28 transition-colors duration-300 text-white
   
   `}
     >
@@ -54,7 +55,20 @@ export default function Navbar({ parentToggle }) {
           </div>
 
           <div className="flex items-center gap-4"> <div>{profileIcon('#fff')}</div>
-            <div className="text-sm font-semibold">Sign in</div>
+            <div className="text-sm font-semibold">
+
+
+              <SignedOut>
+                <div className=" text-white">
+                  <SignInButton />
+                </div>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+
+
+            </div>
             <div>{settingsIcon('#fff')}</div>
             <div>{notificationIcon('#fff')}</div>
           </div>

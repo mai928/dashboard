@@ -1,14 +1,22 @@
 // src/app/layout.js
 
-import { Inter as FontSans } from "next/font/google"
+import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/shared/Layout"; // I see you're using this, so I'll keep it
+import {
+	ClerkProvider,
+	SignedIn,
+	SignedOut,
+	SignInButton,
+	SignUpButton,
+	UserButton,
+} from "@clerk/nextjs";
 
 // 1. Setup the stable Inter font
 const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans", // This variable will be used by Tailwind
-})
+	subsets: ["latin"],
+	variable: "--font-sans", // This variable will be used by Tailwind
+});
 
 export const metadata = {
 	title: "Create Next App",
@@ -17,15 +25,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			{/* 2. Apply the font variable to the body */}
-			<body
-        className={
-          "min-h-screen bg-background font-sans antialiased"
-    }
-      >
-				<Layout children={children}/>
-			</body>
-		</html>
+		<ClerkProvider
+			signInUrl="/sign-in"
+			signUpUrl="/sign-up"
+	
+		>
+			<html lang="en" suppressHydrationWarning>
+				<body className={"min-h-screen bg-background font-sans antialiased"}>
+					{/* <header className="p-4 flex justify-between items-center border-b">
+				
+					</header> */}
+
+					<Layout children={children} />
+				</body>
+			</html>
+		</ClerkProvider>
 	);
 }

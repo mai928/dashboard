@@ -1,9 +1,30 @@
 import { Home } from "lucide-react";
 
+export const downIcon = (fill) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill={fill}
+		width={13}
+		viewBox="0 0 448 512"
+	>
+		<path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+	</svg>
+);
+
+export const upIcon = (fill) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill={fill}
+		width={13}
+		viewBox="0 0 448 512"
+	>
+		<path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" />
+	</svg>
+);
 export const translation = (fill) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		width={15}
+		width={18}
 		fill={fill}
 		viewBox="0 0 512 512"
 	>
@@ -33,7 +54,7 @@ export const tableIcon = (fill) => (
 export const homeIcon = (fill) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		width={15}
+		width={16}
 		fill={fill}
 		viewBox="0 0 576 512"
 	>
@@ -127,6 +148,28 @@ export const settingDots = (fill) => (
 	</svg>
 );
 
+export const pagesIcon = (fill) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill={fill}
+		width={15}
+		viewBox="0 0 384 512"
+	>
+		<path d="M320 464c8.8 0 16-7.2 16-16l0-288-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16l256 0zM0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 448c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 64z" />
+	</svg>
+);
+
+export const ecommerceIcon = (fill) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill={fill}
+		width={20}
+		viewBox="0 0 576 512"
+	>
+		<path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+	</svg>
+);
+
 export const logo = (
 	<svg
 		width="24"
@@ -140,15 +183,86 @@ export const logo = (
 );
 
 export const sidebarLinks = [
-	{ label: "Dashboard", href: "/", icon: homeIcon },
-	{ label: "Settings", href: "/settings", icon: tableIcon },
-	{ label: "Billing", href: "/billing", icon: billingIcon },
-	{ label: "Translation", href: "/translation", icon: translation },
-	{ label: "Settings", href: "/settings", icon: tableIcon },
-	{ label: "Billing", href: "/billing", icon: billingIcon },
-	
+	// 1. Dashboard
+	{
+		label: "Dashboard",
+		href: "/",
+		icon: homeIcon,
+		children: [
+			{ label: "Home", href: "/dashboard/default" },
+			{ label: "CRM", href: "/dashboard/crm" }, // Example icon
+		],
+	},
 
+	// 2. Pages
+	{
+		label: "Pages",
+		href: "/pages",
+		icon: pagesIcon,
+		children: [
+			{ label: "Profile", href: "/pages/profile" },
+			{
+				label: "Users",
+				href: "/pages/users",
+				children: [
+					{ label: "Reports", href: "/pages/users/reports" },
+					{ label: "New User", href: "/pages/users/new" },
+				],
+			},
+			{
+				label: "Account",
+				href: "/pages/account",
+				children: [
+					{
+						label: "Billing",
+						href: "/pages/account/billing",
+					},
+					{
+						label: "Invoice",
+						href: "/pages/account/invoice",
+					},
+					{
+						label: "Settings",
+						href: "/pages/account/settings",
+					},
+				],
+			},
+		],
+	},
 
+	// 3. Authentication
+	{
+		label: "Authentication",
+		href: "/auth",
+		icon: keyIcon,
+		children: [
+			// Note: Use absolute paths for sign-in/sign-up if they are not nested
+			{ label: "Sign In", href: "/sign-in" },
+			{ label: "Sign Up", href: "/sign-up" },
+		],
+	},
+
+	// 4. Ecommerce
+	{
+		label: "Ecommerce",
+		href: "/ecommerce",
+		icon: ecommerceIcon,
+		children: [
+			{ label: "Products", href: "/ecommerce/products" },
+			{ label: "Orders", href: "/ecommerce/orders" },
+		],
+	},
+
+	// 5. Translations
+	{
+		label: "Translations",
+		href: "/translations",
+		icon: translation,
+		children: [
+			{ label: "English", href: "/translations/en" },
+			{ label: "Arabic", href: "/translations/ar" },
+		],
+	},
 ];
 
 export const infoCurrentDay = [

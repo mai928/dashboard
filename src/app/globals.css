@@ -24,11 +24,53 @@ body {
   background-image: url('/firstCard.webp');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center ;
+  background-position: center;
   width: 100%;
   height: 350px;
 }
 
+.clerk {
+  display: contents;
+}
+
+.cl-socialButtonsIconButton__github {
+  background-color: #fff !important;
+  color: #fff !important;
+}
+
+
+.cl-socialButtonsIconButton__google {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* LinkedIn Button */
+.cl-socialButtonsIconButton__linkedin_oidc {
+  background-color: #fff !important;
+  color: #fff !important;
+}
+
+.cl-formFieldLabel{
+  color: white;
+}
+
+/* For WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-end-end-radius:9999px ;
+  border-top-right-radius:9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9ca3af; 
+  border-radius: 9999px;
+  border: 3px solid white;
+}
 
 
 @layer base {
@@ -50,7 +92,7 @@ body {
     --destructive: hsl(0 84.2% 60.2%);
     --destructive-foreground: hsl(210 40% 98%);
     --border: hsl(0, 3%, 13%);
-    --border-lines-area:hsl(0 0% 100%);
+    --border-lines-area: hsl(0 0% 100%);
     --input: hsl(214.3 31.8% 91.4%);
     --ring: hsl(222.2 84% 4.9%);
     /* --chart-1: hsl(12 76% 61%); */
