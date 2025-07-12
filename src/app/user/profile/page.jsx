@@ -1,7 +1,7 @@
 import { UserProfile } from '@clerk/nextjs'
 import React from 'react'
 
-const UserProfile = () => {
+const UserProfilepage = () => {
   return (
     <div>
         <UserProfile/>
@@ -9,4 +9,4 @@ const UserProfile = () => {
   )
 }
 
-export default page
+export default UserProfilepage
