@@ -100,7 +100,7 @@ export default function BarCharts() {
                                 barGap={4}>
                                 <CartesianGrid
                                     vertical={false}
-                                    stroke={false} />
+                                    stroke={'false'} />
                                 <YAxis
                                     domain={[0, 500]}
                                     ticks={[0, 100, 200, 300, 400, 500]}

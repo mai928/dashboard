@@ -11,7 +11,7 @@ const Welcome = () => {
             <p className='text-4xl font-bold mb-5'>Mark Johnson</p>
 
             <p className='w-[40%] my-5 text-slate-400'>Glad to see you again! Ask me anything.</p>
-            <button className='flex items-center gap-3 pt-16'>Tap to record <motion.span initial={{x:0}} whileHover={{x:6}} transition={{type:'spring' ,stiffness:300}} >{rightIcon}</motion.span></button>
+            <button className='flex items-center gap-3 pt-16'>Tap to record <motion.span initial={{x:0}} whileHover={{x:6}} transition={{type:'spring' ,stiffness:300}} >{rightIcon('#fff')}</motion.span></button>
         </div>
     )
 }
