@@ -35,7 +35,7 @@ const SignUppage = () => {
    
    
                },
-             }} fallbackRedirectUrl='/' path="/sign-up" routing="path" />
+             }}  path="/sign-up" routing="path" />
          </div>
    
        </div> 

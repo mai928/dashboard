@@ -90,21 +90,20 @@ const itemVariants = {
 };
 
 const inViewVarient = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
-  },
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: 'easeOut' },
+    },
 };
 
 
-const Feed = () => {
- 
-    return (
-        <motion.div initial='hidden' animate='visible' variants={wrapper} className='px-2 lg:px-5  text-white '>
-            <DailyInfo />
+const Feed = ({ fallbackData , chartData , BarChartData}) => {
 
+    return (
+        <motion.div initial='hidden' animate='visible' variants={wrapper} className='px-2 lg:px-5  text-white pt-16 lg:pt-0'>
+            <DailyInfo fallbackData={fallbackData}/>
             <motion.div
                 variants={containerVarients}
                 initial='hidden'
@@ -114,7 +113,7 @@ const Feed = () => {
                 <motion.div
                     variants={itemVariants}
                     className='grid grid-cols-12 gap-6 w-full my-5'>
-                    <div className='col-span-12 md:col-span-6 lg:col-span-5'><Welcome /></div>
+                    <div className='col-span-12 md:col-span-6 lg:col-span-5'><Welcome/></div>
                     <div className='col-span-12 md:col-span-6 lg:col-span-3'><StatisticProgress /></div>
                     <div className='col-span-12 md:col-span-6 lg:col-span-4'><Tracking /></div>
                 </motion.div>
@@ -122,16 +121,12 @@ const Feed = () => {
                 <motion.div
                     variants={itemVariants}
                     className="w-full block lg:flex items-center gap-6 ">
-                    <div className='w-full lg:w-[60%]'><DynamicAreaCharts />   </div>
-                    <div className=' w-full lg:w-[40%] mt-5 lg:mt-0'><DynamicBarCharts /> </div>
+                    <div className='w-full lg:w-[60%]'><DynamicAreaCharts  chartData={chartData}/>   </div>
+                    <div className=' w-full lg:w-[40%] mt-5 lg:mt-0'><DynamicBarCharts  BarChartData={BarChartData}/> </div>
                 </motion.div>
 
 
             </motion.div>
-
-
-
-
             <motion.div
                 variants={inViewVarient}
                 initial={'hidden'}

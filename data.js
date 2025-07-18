@@ -189,8 +189,8 @@ export const sidebarLinks = [
 		href: "/",
 		icon: homeIcon,
 		children: [
-			{ label: "Home", href: "/dashboard/default" },
-			{ label: "CRM", href: "/dashboard/crm" }, // Example icon
+			{ label: "Home", href: "/" },
+			{ label: "CRM", href: "/dashboard/CRM" }, // Example icon
 		],
 	},
 
@@ -206,7 +206,7 @@ export const sidebarLinks = [
 				href: "/pages/users",
 				children: [
 					{ label: "Reports", href: "/pages/users/reports" },
-					{ label: "New User", href: "/pages/users/new" },
+					{ label: "New User", href: "/pages/users/newUser" },
 				],
 			},
 			{
@@ -215,15 +215,15 @@ export const sidebarLinks = [
 				children: [
 					{
 						label: "Billing",
-						href: "/pages/account/billing",
+						href: "/pages/accounts/billing",
 					},
 					{
 						label: "Invoice",
-						href: "/pages/account/invoice",
+						href: "/pages/accounts/invoice",
 					},
 					{
 						label: "Settings",
-						href: "/pages/account/settings",
+						href: "/pages/accounts/settings",
 					},
 				],
 			},
@@ -265,12 +265,12 @@ export const sidebarLinks = [
 	},
 ];
 
-export const infoCurrentDay = [
+export const infoCurrentDayIcons = [
 	{
-		id: 1,
-		title: "today's money",
-		rate: "+55%",
-		caseName: "$53,000",
+		// id: 1,
+		// title: "today's money",
+		// rate: "+55%",
+		// caseName: "$53,000",
 		icon: (
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -283,10 +283,10 @@ export const infoCurrentDay = [
 		),
 	},
 	{
-		id: 2,
-		title: "today's users",
-		rate: "+3%",
-		caseName: "2,300",
+		// id: 2,
+		// title: "today's users",
+		// rate: "+3%",
+		// caseName: "2,300",
 		icon: (
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -299,10 +299,10 @@ export const infoCurrentDay = [
 		),
 	},
 	{
-		id: 3,
-		title: "new clients",
-		rate: "-2%",
-		caseName: "+3,462",
+		// id: 3,
+		// title: "new clients",
+		// rate: "-2%",
+		// caseName: "+3,462",
 		icon: (
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -315,10 +315,10 @@ export const infoCurrentDay = [
 		),
 	},
 	{
-		id: 4,
-		title: "total sales",
-		rate: "+5%",
-		caseName: "$103,430",
+		// id: 4,
+		// title: "total sales",
+		// rate: "+5%",
+		// caseName: "$103,430",
 		icon: (
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

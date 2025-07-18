@@ -1,21 +1,12 @@
-// src/app/layout.js
-
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
-import Layout from "@/components/shared/Layout"; // I see you're using this, so I'll keep it
-import {
-	ClerkProvider,
-	SignedIn,
-	SignedOut,
-	SignInButton,
-	SignUpButton,
-	UserButton,
-} from "@clerk/nextjs";
+import Layout from "@/components/shared/Layout";
+import { ClerkProvider } from "@clerk/nextjs";
 
 // 1. Setup the stable Inter font
 const fontSans = FontSans({
 	subsets: ["latin"],
-	variable: "--font-sans", // This variable will be used by Tailwind
+	variable: "--font-sans",
 });
 
 export const metadata = {
@@ -25,18 +16,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<ClerkProvider
-			signInUrl="/sign-in"
-			signUpUrl="/sign-up"
-	
-		>
+		<ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-up">
 			<html lang="en" suppressHydrationWarning>
-				<body className={"min-h-screen bg-background font-sans antialiased"}>
-					{/* <header className="p-4 flex justify-between items-center border-b">
-				
-					</header> */}
-
-					<Layout children={children} />
+				<body className={`min-h-screen bg-background font-sans antialiased ${fontSans.variable}`}>
+					<Layout>{children}</Layout>
 				</body>
 			</html>
 		</ClerkProvider>

@@ -45,7 +45,7 @@ const OrderIcon = ({ type, color }) => {
 
 export default function Order() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen z-10">
       <Card className="bg-card-gradient  border-none text-white rounded-2xl w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-xl font-bold">Orders overview</CardTitle>
@@ -55,11 +55,11 @@ export default function Order() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-8 py-2">
+          <div className="space-y-8 py-2 z-10">
             {ordersData.map((order, index) => (
               <div key={order.id} className="flex gap-4">
                 {/* Icon and Timeline */}
-                <div className="relative">
+                <div className="relative ">
                   <div className="flex items-center justify-center h-8 w-8">
                     <OrderIcon type={order.iconType} color={order.iconColor} />
                   </div>

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation"
 import { homeIcon, notificationIcon, profileIcon, searchIcon, settingsIcon } from "../../../data"
 import { motion } from 'framer-motion';
 import { useEffect, useState } from "react";
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { ClerkLoaded, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 
 export default function Navbar({ parentToggle }) {
@@ -29,12 +29,12 @@ export default function Navbar({ parentToggle }) {
       initial={false}
       animate={isScrolled ? { opacity: 1 } : { opacity: 1 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className={`lg:fixed inset-0 lg:z-40 left-0 ${parentToggle ? 'md:left-24' : 'md:left-72'}  mx-[21px] h-28 transition-colors duration-300 text-white
+      className={`hidden lg:block fixed  inset-0 lg:z-40 left-0 ${parentToggle ? 'md:left-24' : 'md:left-72'}  mx-[21px] h-28 transition-colors duration-300 text-white
   
   `}
     >
       <div
-        className={`lg:flex items-center justify-between  my-4 py-3 lg:px-5 rounded-2xl transition-all duration-300 ${isScrolled
+        className={`hidden lg:flex items-center justify-between  my-4 py-3 lg:px-5 rounded-2xl transition-all duration-300 ${isScrolled
           ? 'lg:bg-transparent lg:backdrop-blur-[42px] lg:border lg:border-white'
           : ''
           }`}
@@ -55,20 +55,19 @@ export default function Navbar({ parentToggle }) {
           </div>
 
           <div className="flex items-center gap-4"> <div>{profileIcon('#fff')}</div>
-            <div className="text-sm font-semibold">
+            <ClerkLoaded>
+              <div className="text-sm font-semibold">
+                <SignedOut>
+                  <div className=" text-white">
+                    <SignInButton />
+                  </div>
+                </SignedOut>
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
+              </div>
+            </ClerkLoaded>
 
-
-              <SignedOut>
-                <div className=" text-white">
-                  <SignInButton />
-                </div>
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-
-
-            </div>
             <div>{settingsIcon('#fff')}</div>
             <div>{notificationIcon('#fff')}</div>
           </div>

@@ -11,7 +11,7 @@ const ResponsiveScreen = ({path ,setToggle ,toggle}) => {
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ type: 'spring', stiffness: 100, damping: 20, duration: 0.4 }}
-              className='fixed w-56 h-full bg-secondary_color  text-white border-r px-5 py-8 shadow-sm'>
+              className='fixed inset-0 w-56 h-full bg-secondary_color  text-white border-r px-5 py-8 shadow-sm z-50'>
 
               <h2 className='flex items-center gap-5 text-xl font-semibold uppercase    '>
                 {homeIcon}
@@ -36,7 +36,7 @@ const ResponsiveScreen = ({path ,setToggle ,toggle}) => {
                 })
               }
               </nav>
-              <p className='bg-black' onClick={() => setToggle(false)}>x</p>
+              <button className='bg-black' onClick={() => setToggle(false)}>x</button>
             </motion.aside>
           )
         }

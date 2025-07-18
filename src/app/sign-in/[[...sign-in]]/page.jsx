@@ -1,7 +1,12 @@
 import { SignIn } from '@clerk/nextjs'
+import { auth } from "@clerk/nextjs/server";
+
 import React from 'react'
 
 const SignInpage = () => {
+  const {userId}= auth()
+  console.log('user id :::::::', userId)
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-secondary_color bg-cover bg-center">
       <div className="bg-[url('/signIn-bg.png')]  bg-cover h-screen lg:w-1/2 hidden lg:flex justify-center items-center ">
@@ -18,7 +23,8 @@ const SignInpage = () => {
       </div>
 
       <div className='lg:w-1/2 flex justify-center items-center  '>
-        <SignIn
+      {
+        userId?(<div><p className='text-white text-lg'>you already sign in </p></div>):(<SignIn
 
           appearance={{
             variables: {
@@ -35,7 +41,9 @@ const SignInpage = () => {
 
 
             },
-          }} fallbackRedirectUrl='/' path="/sign-in" routing="path" />
+          }} fallbackRedirectUrl='/sign-in' path="/sign-in" />)
+      }
+        
       </div>
 
     </div>

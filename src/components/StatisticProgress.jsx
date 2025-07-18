@@ -1,6 +1,4 @@
 'use client'
-
-import { motion } from 'framer-motion'
 import { SmileyIcon } from '../../data'
 import CircularProgress from './CircularProgress'
 

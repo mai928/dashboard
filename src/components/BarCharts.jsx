@@ -20,49 +20,48 @@ import {
 import { billingIcon, keyIcon, notificationIcon, settingsIcon, tableIcon, translation } from "../../data"
 import { Progress } from "./ui/progress"
 import { useEffect, useState } from "react"
-import { positionalKeys } from "framer-motion"
 
 export const description = "A bar chart"
 
-const chartData = [
-    { month: "January", desktop: 186 },
-    { month: "February", desktop: 305 },
-    { month: "March", desktop: 237 },
-    { month: "April", desktop: 473 },
-    { month: "May", desktop: 209 },
-    { month: "June", desktop: 314 },
-    { month: "july", desktop: 209 },
-    { month: "Aug", desktop: 314 },
+// const chartData = [
+//     { month: "January", desktop: 186 },
+//     { month: "February", desktop: 305 },
+//     { month: "March", desktop: 237 },
+//     { month: "April", desktop: 473 },
+//     { month: "May", desktop: 209 },
+//     { month: "June", desktop: 314 },
+//     { month: "july", desktop: 209 },
+//     { month: "Aug", desktop: 314 },
 
-]
+// ]
 
-const statsData = [
+const statsProperty = [
     {
-        label: "Users",
-        value: "32,984",
-        progress: 75,
+        // label: "Users",
+        // value: "32,984",
+        // progress: 75,
         icon: tableIcon,
         color: "bg-blue-500",
     },
     {
-        label: "Clicks",
-        value: "2.42M",
-        progress: 40,
+        // label: "Clicks",
+        // value: "2.42M",
+        // progress: 40,
         icon: translation,
         color: "bg-yellow-500",
     },
     {
-        label: "Sales",
-        value: "2,400$",
-        progress: 55,
+        // label: "Sales",
+        // value: "2,400$",
+        // progress: 55,
         icon: billingIcon,
         color: "bg-green-500",
     },
     {
-        label: "Items",
-        value: "320",
-        progress: 60,
-        icon: keyIcon, // fallback emoji if no icon
+        // label: "Items",
+        // value: "320",
+        // progress: 60,
+        icon: keyIcon, 
         color: "bg-purple-500",
     },
 ]
@@ -75,7 +74,9 @@ const chartConfig = {
     },
 }
 
-export default function BarCharts() {
+export default function BarCharts({BarChartData}) {
+
+
 
 
 
@@ -95,7 +96,7 @@ export default function BarCharts() {
 
                     <div className="bg-primary_Color  rounded-3xl py-5">
                         <ResponsiveContainer width="100%" >
-                            <BarChart accessibilityLayer data={chartData}
+                            <BarChart accessibilityLayer data={BarChartData[0].chartData}
                                 barCategoryGap={'10%'}
                                 barGap={4}>
                                 <CartesianGrid
@@ -138,11 +139,11 @@ export default function BarCharts() {
                 </div>
 
                 <div className="block lg:flex justify-between items-center w-full">
-                    {statsData.map((item) => (
+                    {BarChartData[0].statsData.map((item, index) => (
 
                         <div key={item.label} className="text-center mb-10 lg:mb-2">
                             <div className="flex gap-3 items-center justify-center">
-                                <div className={`p-2 rounded-xl bg-slate-200`}>{item.icon('#0075ff')}</div>
+                                <div className={`p-2 rounded-xl bg-slate-200`}>{statsProperty[index]?.icon('#0075ff')}</div>
                                 <p className="text-muted-foreground text-slate-400 font-bold">{item.label}</p>
                             </div>
                             <div className="text-white text-xl font-bold mt-3">{item.value}</div>

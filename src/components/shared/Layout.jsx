@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <div className="flex">
+    <div className="lg:flex">
       <Sidebar sendDataToParent={handleToggle} />
       <div className={`${parentToggle ? 'md:ml-24' : 'md:ml-72'} w-full`}>
         <Navbar parentToggle={parentToggle} />
