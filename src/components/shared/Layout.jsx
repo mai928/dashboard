@@ -17,7 +17,6 @@ const Layout = ({ children }) => {
   if (isAuthPage) {
     return (
       <div className="min-h-screen flex flex-col">
-        <Navbar parentToggle={parentToggle} />
         <main className="flex-1">{children}</main>
       </div>
     )

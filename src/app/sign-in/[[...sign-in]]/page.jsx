@@ -1,11 +1,15 @@
-import { SignIn } from '@clerk/nextjs'
-import { auth } from "@clerk/nextjs/server";
+"use client"
+import { SignIn, SignOutButton, useUser } from '@clerk/nextjs'
+import {  ArrowRightCircle } from 'lucide-react'
+import Link from 'next/link'
 
 import React from 'react'
+// export const dynamic = 'force-dynamic';
 
 const SignInpage = () => {
-  const {userId}= auth()
-  console.log('user id :::::::', userId)
+
+  const { user } = useUser()
+  console.log('user id :::::::', user)
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-secondary_color bg-cover bg-center">
@@ -23,27 +27,46 @@ const SignInpage = () => {
       </div>
 
       <div className='lg:w-1/2 flex justify-center items-center  '>
-      {
-        userId?(<div><p className='text-white text-lg'>you already sign in </p></div>):(<SignIn
+        {
+          user ? (
+            <div className='border-[1px] border-gray-700 shadow-md shadow-gray-600 rounded-lg  text-white w-[500px] h-[300px] p-10'  >
+              <h2 className='text-lg capitalize font-semibold '>Welcome Back , {user.firstName} {user.lastName}</h2>
 
-          appearance={{
-            variables: {
+              <p className=' text-sm capitalize my-1 '>you're already signed in  </p>
+              <div className='text-center pt-10'>
+                <Link href={'/'} className='bg-gradient-to-r from-blue-600 to-blue-400 hover:opacity-90 transition-opacity px-5 py-2 rounded-md capitalize '>go to Dashboard</Link>
 
-            },
-            elements: {
-              card: 'bg-transparent shadow-lg ',
-              // This is the key change:
-              // Target the entire footer container, set its background, and remove the top border
-              footer: 'bg-transparent border-none clerk',
-              headerTitle: 'text-center text-white',
-              formFieldInput: 'border rounded px-3 py-2',
-              formButtonPrimary: 'bg-primary_blue',
+                <p className='mt-4'>OR</p>
+                <div className='text-gray-400  flex m-auto w-full mt-3'>
+                  <SignOutButton>
+                    <button className='w-full flex items-center justify-center gap-1'>Sign Out  <ArrowRightCircle size={18} style={{marginTop:'5px'}} />
+                    </button>
+                  </SignOutButton>
 
 
-            },
-          }} fallbackRedirectUrl='/sign-in' path="/sign-in" />)
-      }
-        
+                </div>
+
+              </div>
+
+            </div>
+          ) : (<SignIn
+
+            appearance={{
+              variables: {
+
+              },
+              elements: {
+                card: 'bg-transparent shadow-lg ',
+                footer: 'bg-transparent border-none clerk',
+                headerTitle: 'text-center text-white',
+                formFieldInput: 'border rounded px-3 py-2',
+                formButtonPrimary: 'bg-primary_blue',
+
+
+              },
+            }} path="/sign-in" routing='path' />)
+        }
+
       </div>
 
     </div>
