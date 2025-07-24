@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense } from "react"
 import CalendarChart from "@/components/CalenderChart"
 import EarhCanvas from "@/components/EarhCanvas"
 import DailyInfo from "@/components/DailyInfo";
@@ -21,14 +21,16 @@ const CRM = async () => {
           </div>
         </div>
 
-        <div className="w-3/4 mb-5 ">
-          <CalendarChart />
-
+        <div className="w-3/4 mb-5">
+          <Suspense fallback={<p>Loading Calendar...</p>}>
+            <CalendarChart />
+          </Suspense>
         </div>
-
       </div>
 
-      <EarhCanvas />
+      <Suspense fallback={null}>
+        <EarhCanvas />
+      </Suspense>
 
 
     </div>
