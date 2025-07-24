@@ -1,12 +1,12 @@
-import { Inter as FontSans } from "next/font/google";
+import { Pacifico  } from "next/font/google";
 import "./globals.css";
-import Layout from "@/components/shared/Layout";
-import { ClerkProvider } from "@clerk/nextjs";
+
 
 // 1. Setup the stable Inter font
-const fontSans = FontSans({
+const fontSans = Pacifico({
 	subsets: ["latin"],
 	variable: "--font-sans",
+	weight:'400'
 });
 
 export const metadata = {
@@ -16,12 +16,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-up">
 			<html lang="en" suppressHydrationWarning>
-				<body className={`min-h-screen bg-background font-sans antialiased ${fontSans.variable}`}>
-					<Layout>{children}</Layout>
+				<body className={` min-h-screen   antialiased ${fontSans.variable}`}>
+					{children}
 				</body>
 			</html>
-		</ClerkProvider>
 	);
 }

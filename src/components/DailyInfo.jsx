@@ -4,10 +4,10 @@ import { infoCurrentDayIcons } from '../../data'
 
 
 
-const DailyInfo = ({fallbackData}) => {
+const DailyInfo = ({fallbackData ,style}) => {
 
     return (
-        <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5'>
+        <div className={`grid ${style} md:grid-cols-2 grid-cols-1 gap-5`}>
             {
                 fallbackData.map((item, index) => (
                     <div className=' py-4 px-5  rounded-2xl flex items-center justify-between bg-third_color ' key={index}>

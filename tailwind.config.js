@@ -65,11 +65,12 @@ module.exports = {
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)",
 			},
+
+			fontFamily: {
+				'pacifico': ["Pacifico", "cursive"],
+				"jakarta-sans": ['"Plus Jakarta Sans"', "sans-serif"],
+			},
 		},
 	},
-	plugins: [
-		require("tailwindcss-animate"),
-		require("tailwind-scrollbar"), 
-
-	],
+	plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
 };

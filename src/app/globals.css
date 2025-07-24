@@ -1,23 +1,27 @@
-/* src/app/globals.css (Corrected Version) */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  Your custom styles are here at the end. 
-  This is fine, but it will override the `bg-background` from the layer above.
-*/
+
 body {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
   overflow-x: hidden;
-  background-image: url('/background.png');
+  background-image: url('../../public/background.png');
   background-repeat: no-repeat;
   background-size: cover;
+  font-family:'Plus Jakarta Sans", sans-serif' ;
 
   /* NOTE: Corrected the path */
+}
+.bg-root{
+  background-image: url('../../public/bg1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bg-welcome {

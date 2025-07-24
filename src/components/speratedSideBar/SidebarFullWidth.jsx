@@ -2,10 +2,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react'
 import { downIcon, logo, sidebarLinks, upIcon } from '../../../data';
 import Link from 'next/link';
-import { Star } from 'lucide-react';
+import { PanelLeft, Star } from 'lucide-react';
 import SubChildren from '../menu/SubChildren';
 
-const SidebarFullWidth = ({ path, openToggle, setOpenToggle }) => {
+const SidebarFullWidth = ({ path }) => {
   const [openSubMenu, setOpenSubMenu] = useState({})
   const [openSubChildren, setOpenSubChildren] = useState({})
 
@@ -198,12 +198,7 @@ const SidebarFullWidth = ({ path, openToggle, setOpenToggle }) => {
 
       {/* Bottom Fixed Section */}
       <div className="m-4">
-        {/* <div className="m-auto w-full h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
-        <div className="flex justify-end mt-5">
-          <button onClick={() => setOpenToggle(!openToggle)}>
-            <PanelLeft />
-          </button>
-        </div> */}
+        <div className="m-auto w-full h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
         <div className="bg-[url('/img-sidebar.webp')] bg-cover bg-center/to-50% w-full bg-no-repeat rounded-2xl py-5 px-3 ">
           <Star className='bg-white  w-8 h-8 p-[2px] fill-primary_blue rounded-lg' />
           <p className='mt-5'>Need help?</p>

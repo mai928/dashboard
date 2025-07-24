@@ -3,34 +3,32 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
 // Define routes that are always public and don't require authentication
-const isPublicRoute = createRouteMatcher([
-  '/', 
-  '/sign-in(.*)', 
-  '/sign-up(.*)',
-  '/dashboard/CRM',
-  '/pages/profile',
-  '/pages/users',
-  '/pages/users/reports',
-  '/pages/users/newUser',
-  '/pages/accounts/billing',
-  '/pages/accounts/invoice',
-  '/pages/accounts/settings',
-  '/ecommerce/products',
-  '/ecommerce/orders',
-  '/translations/en',
-  '/translations/ar'
-
-
-]);
+// const isPublicRoute = createRouteMatcher([
+//   '/', 
+//   '/sign-in(.*)', 
+//   '/sign-up(.*)',
+//   // '/dashboard/CRM',
+//   '/pages/profile',
+//   '/pages/users',
+//   '/pages/users/reports',
+//   '/pages/users/newUser',
+//   '/pages/accounts/billing',
+//   '/pages/accounts/invoice',
+//   '/pages/accounts/settings',
+//   '/ecommerce/products',
+//   '/ecommerce/orders',
+//   '/translations/en',
+//   '/translations/ar'
+// ]);
 
 
 
 export default clerkMiddleware((auth, req) => {
   console.log('Middleware is running for path:', req.nextUrl.pathname); 
 
-  if ( !isPublicRoute(req)) {
-    return  auth.protect()
-  }
+  // if ( !isPublicRoute(req)) {
+  //   return  auth.protect()
+  // }
 
 });
 

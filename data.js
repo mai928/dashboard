@@ -190,7 +190,7 @@ export const sidebarLinks = [
 		icon: homeIcon,
 		children: [
 			{ label: "Home", href: "/" },
-			{ label: "CRM", href: "/dashboard/CRM" }, // Example icon
+			{ label: "CRM", href: "/AdminDashboard/default/CRM" }, // Example icon
 		],
 	},
 
@@ -200,13 +200,13 @@ export const sidebarLinks = [
 		href: "/pages",
 		icon: pagesIcon,
 		children: [
-			{ label: "Profile", href: "/pages/profile" },
+			{ label: "Profile", href: "/AdminDashboard/pages/profile" },
 			{
 				label: "Users",
-				href: "/pages/users",
+				href: "/AdminDashboard/pages/users",
 				children: [
-					{ label: "Reports", href: "/pages/users/reports" },
-					{ label: "New User", href: "/pages/users/newUser" },
+					{ label: "Reports", href: "/AdminDashboard/pages/users/reports" },
+					{ label: "New User", href: "/AdminDashboard/pages/users/newUser" },
 				],
 			},
 			{
@@ -215,15 +215,15 @@ export const sidebarLinks = [
 				children: [
 					{
 						label: "Billing",
-						href: "/pages/accounts/billing",
+						href: "/AdminDashboard/pages/accounts/billing",
 					},
 					{
 						label: "Invoice",
-						href: "/pages/accounts/invoice",
+						href: "/AdminDashboard/pages/accounts/invoice",
 					},
 					{
 						label: "Settings",
-						href: "/pages/accounts/settings",
+						href: "/AdminDashboard/pages/accounts/settings",
 					},
 				],
 			},
@@ -248,8 +248,8 @@ export const sidebarLinks = [
 		href: "/ecommerce",
 		icon: ecommerceIcon,
 		children: [
-			{ label: "Products", href: "/ecommerce/products" },
-			{ label: "Orders", href: "/ecommerce/orders" },
+			{ label: "Products", href: "/AdminDashboard/ecommerce/products" },
+			{ label: "Orders", href: "/AdminDashboard/ecommerce/orders" },
 		],
 	},
 
@@ -259,8 +259,8 @@ export const sidebarLinks = [
 		href: "/translations",
 		icon: translation,
 		children: [
-			{ label: "English", href: "/translations/en" },
-			{ label: "Arabic", href: "/translations/ar" },
+			{ label: "English", href: "/AdminDashboard/translations/en" },
+			{ label: "Arabic", href: "/AdminDashboard/translations/ar" },
 		],
 	},
 ];

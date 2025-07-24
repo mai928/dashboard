@@ -7,7 +7,7 @@ import ToggleIcons from '../speratedSideBar/ToggleIcons'
 import SidebarFullWidth from '../speratedSideBar/SidebarFullWidth'
 import ResponsiveScreen from '../speratedSideBar/ResponsiveScreen'
 
-const Sidebar = ({ sendDataToParent }) => {
+const Sidebar = ({ setHandleMinSideBar  ,openMinSideBar}) => {
   const path = usePathname()
   const [showMenu, setShowMenu] = useState(false)
   const [toggle, setToggle] = useState(false)
@@ -51,9 +51,9 @@ const Sidebar = ({ sendDataToParent }) => {
 
 
 
-  useEffect(() => {
-    sendDataToParent(openToggle)
-  }, [openToggle])
+  // useEffect(() => {
+  //   sendDataToParent(openToggle)
+  // }, [openToggle])
 
 
 
@@ -88,11 +88,11 @@ const Sidebar = ({ sendDataToParent }) => {
                 damping: 20,
                 mass: 0.6
               }}
-              className={`fixed flex flex-col ${openToggle ? 'w-20' : 'w-72'} h-screen   text-white `}>
+              className={`fixed flex flex-col ${openMinSideBar ? 'w-24' : 'w-72'} h-screen   text-white `}>
 
               <AnimatePresence mode="wait">
                 {/* show small width of sidebar */}
-                {openToggle ? (
+                {openMinSideBar ? (
                   <motion.div
                     key="toggle"
                     initial={{ opacity: 0, x: 40 }}
@@ -104,17 +104,17 @@ const Sidebar = ({ sendDataToParent }) => {
                       damping: 18,
                       mass: 0.4,
                     }}
-                    className="flex flex-col h-full"
+                    className="flex flex-col h-full border-[1px] border-gray-800 rounded-3xl mx-2 my-5 py-5"
                   >
                     <ToggleIcons
                       path={path}
-                      openToggle={openToggle}
-                      setOpenToggle={setOpenToggle}
+                        openMinSideBar={openMinSideBar}
+                        setHandleMinSideBar={setHandleMinSideBar}
                     />
                   </motion.div>
                 ) : (
                   // show full width of sidebar
-                  <SidebarFullWidth path={path} setOpenToggle={setOpenToggle} openToggle={openToggle} />
+                  <SidebarFullWidth path={path}  />
                 )}
               </AnimatePresence>
             </motion.aside>

@@ -5,9 +5,10 @@ import { homeIcon, notificationIcon, profileIcon, searchIcon, settingsIcon } fro
 import { motion } from 'framer-motion';
 import { useEffect, useState } from "react";
 import { ClerkLoaded, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { ListCollapse, ListEnd, ListFilter, ListMinus, ListOrdered, ListRestart, ListStart, ListTree, MenuSquare, PanelLeft } from "lucide-react";
 
 
-export default function Navbar({ parentToggle }) {
+export default function Navbar({ openMinSideBar, setHandleMinSideBar }) {
   const path = usePathname()
 
   const [isScrolled, setScrolled] = useState(false)
@@ -29,7 +30,7 @@ export default function Navbar({ parentToggle }) {
       initial={false}
       animate={isScrolled ? { opacity: 1 } : { opacity: 1 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className={`hidden lg:block fixed  inset-0 lg:z-40 left-0 ${parentToggle ? 'md:left-24' : 'md:left-72'}  mx-[21px] h-28 transition-colors duration-300 text-white
+      className={`hidden lg:block fixed  inset-0 lg:z-40 left-0 ${openMinSideBar ? 'md:left-24' : 'md:left-72'}  mx-[21px] h-28 transition-colors duration-300 text-white
   
   `}
     >
@@ -39,12 +40,24 @@ export default function Navbar({ parentToggle }) {
           : ''
           }`}
       >
-        <div>
-          <div className="lg:flex items-center gap-3">
-            <p className="  flex   justify-end lg:justify-normal  gap-2 text-lg lg:text-base text-white">{homeIcon('#fff')} {path === '/' && '/ Dashboard'}</p>
+
+        <div className="flex items-end gap-10">
+          <div>
+            <div className="  flex   justify-end lg:justify-normal  gap-2 text-lg lg:text-base text-white">{homeIcon('#fff')} <p>{path === '/AdminDashboard' && '/AdminDashboard'}</p></div>
+            <h1 className=" hidden lg:block text-lg font-semibold">Dashboard</h1>
           </div>
-          <h1 className=" hidden lg:block text-lg font-semibold">Dashboard</h1>
+
+          <button onClick={() => setHandleMinSideBar(!openMinSideBar)}>
+            {
+              openMinSideBar ? (<ListCollapse />
+              ) : (<ListStart />
+              )
+            }
+          </button>
         </div>
+
+
+
 
         <div className="hidden lg:flex items-center  gap-4 ">
           <div className="relative my-3 lg:my-0">

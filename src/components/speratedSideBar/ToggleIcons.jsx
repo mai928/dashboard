@@ -3,7 +3,7 @@ import { logo, sidebarLinks } from '../../../data'
 import { motion } from 'framer-motion'
 import { PanelLeft } from 'lucide-react'
 
-const ToggleIcons = ({ path, openToggle, setOpenToggle }) => {
+const ToggleIcons = ({ path ,openMinSideBar ,setHandleMinSideBar  }) => {
     const containerVarients = {
         hidden: {
             opacity: 0,
@@ -37,7 +37,7 @@ const ToggleIcons = ({ path, openToggle, setOpenToggle }) => {
     })
 
     return (
-        <>
+        <div onMouseOver={()=>setHandleMinSideBar(!openMinSideBar)}>
 
             <div className=''>
                 <motion.h2 className='flex  justify-center items-center gap-5 text-xl font-semibold uppercase'>
@@ -49,12 +49,12 @@ const ToggleIcons = ({ path, openToggle, setOpenToggle }) => {
 
             {/* Scrollable Links */}
             <motion.div initial='hidden' animate='visible' variants={containerVarients} className='flex-1 space-y-2 py-3  scrollbar-none scrollbar-thumb-rounded-full overflow-y-auto  scrollbar-thumb-secondary_color scrollbar-track-transparent'>
-                <motion.nav className='space-y-2 '>{
+                <motion.nav className='space-y-3 '>{
                     sidebarLinks.map((item, index) => {
                         const isActive = path === item.href
                         const fill = isActive ? '#fff' : '#0075ff'
                         return (
-                            <motion.div  variants={itemVariants(index)} key={item.href} className={` flex items-center gap-3  py-2 px-5 rounded-2xl`}>
+                            <motion.div  variants={itemVariants(index)} key={item.href} className={` flex items-center justify-center  py-2  rounded-2xl`}>
                                 <div className={`   px-2 py-[9px] rounded-xl ${isActive ? 'bg-primary_blue' : 'bg-secondary_color'}`}>{item.icon(fill)}</div>
 
                             </motion.div>
@@ -63,18 +63,8 @@ const ToggleIcons = ({ path, openToggle, setOpenToggle }) => {
                 }
                 </motion.nav>
             </motion.div>
-
-            {/* Bottom Fixed Section */}
-
-            <div className='  pb-5  bg-opacity-10 rounded-3xl  '>
-
-                <div className=' m-auto w-full   h-px bg-gradient-to-r from-transparent via-gray-500 to-transparent  ' />
-                <div className='flex  mt-4 justify-center'  >
-                    <button onClick={() => setOpenToggle(!openToggle)}> <PanelLeft color='#6b7280' />
-                    </button>
-                </div>
-            </div>
-        </>
+          
+        </div>
     )
 }
 
