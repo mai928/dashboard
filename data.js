@@ -237,8 +237,8 @@ export const sidebarLinks = [
 		icon: keyIcon,
 		children: [
 			// Note: Use absolute paths for sign-in/sign-up if they are not nested
-			{ label: "Sign In", href: "/sign-in" },
-			{ label: "Sign Up", href: "/sign-up" },
+			{ label: "Sign In", href: "/AdminDashboard/sign-in" },
+			{ label: "Sign Up", href: "/AdminDashboard/sign-up" },
 		],
 	},
 
