@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function DashboardLayout({ children }) {
     return (
-        <ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-up">
+        <ClerkProvider signInUrl="/AdminDashboard/sign-in" signUpUrl="/AdminDashboard/sign-up">
                 <div className={`min-h-screen  font-sans antialiased ${fontSans.variable}`}>
                     <Layout>{children}</Layout>
                 </div>

@@ -29,7 +29,7 @@ const SignUppage = () => {
 
               <p className=' text-sm capitalize my-1 '>you're already signed Up  </p>
               <div className='text-center pt-10'>
-                <Link href={'/'} className='bg-gradient-to-r from-blue-600 to-blue-400 hover:opacity-90 transition-opacity px-5 py-2 rounded-md capitalize '>go to Dashboard</Link>
+                <Link href={'/AdminDashboard'} className='bg-gradient-to-r from-blue-600 to-blue-400 hover:opacity-90 transition-opacity px-5 py-2 rounded-md capitalize '>go to Dashboard</Link>
 
                 <p className='mt-4'>OR</p>
                 <div className='text-gray-400  flex m-auto w-full mt-3'>
@@ -61,7 +61,7 @@ const SignUppage = () => {
 
 
               },
-            }} path="/sign-up" routing="path" />)
+            }} path="/AdminDashboard/sign-up" routing="path" />)
         }
 
       </div>

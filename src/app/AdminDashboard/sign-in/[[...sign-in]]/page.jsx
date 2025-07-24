@@ -34,7 +34,7 @@ const SignInpage = () => {
 
               <p className=' text-sm capitalize my-1 '>you're already signed in  </p>
               <div className='text-center pt-10'>
-                <Link href={'/'} className='bg-gradient-to-r from-blue-600 to-blue-400 hover:opacity-90 transition-opacity px-5 py-2 rounded-md capitalize '>go to Dashboard</Link>
+                <Link href={'/AdminDashboard'} className='bg-gradient-to-r from-blue-600 to-blue-400 hover:opacity-90 transition-opacity px-5 py-2 rounded-md capitalize '>go to Dashboard</Link>
 
                 <p className='mt-4'>OR</p>
                 <div className='text-gray-400  flex m-auto w-full mt-3'>
@@ -64,7 +64,7 @@ const SignInpage = () => {
 
 
               },
-            }} path="/sign-in" routing='path' />)
+            }} path="/AdminDashboard/sign-in" routing='path' />)
         }
 
       </div>
