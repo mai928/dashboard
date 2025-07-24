@@ -17,16 +17,19 @@ const CRM = async () => {
           <h3 className="text-4xl mt-3 mb-7 ms-3 font-semibold capitalize text-white">general statistics</h3>
           <DailyInfo fallbackData={data}
           />
-           <div className="mt-10"><Sales/>
-            </div>  
+          <div className="mt-10"><Sales />
+          </div>
         </div>
 
         <div className="w-3/4 mb-5 ">
-        <CalendarChart />
+          <CalendarChart />
+
         </div>
 
       </div>
+
       <EarhCanvas />
+
 
     </div>
 

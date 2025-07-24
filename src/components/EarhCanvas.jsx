@@ -1,5 +1,5 @@
 
-"use client"
+'use client'
 import { OrbitControls, useGLTF } from '@react-three/drei'
 import React, { Suspense, useRef } from 'react'
 import { Html, useProgress } from "@react-three/drei";
