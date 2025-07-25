@@ -52,25 +52,25 @@ const SignInpage = () => {
           ) :
 
             (
-              <div className='z-0'>  
+              <div className="relative z-30">
                 <SignIn
 
-                appearance={{
-                  variables: {
+                  appearance={{
+                    variables: {
 
-                  },
-                  elements: {
-                    card: 'bg-transparent shadow-lg mt-20  ',
-                    footer: 'bg-transparent border-none clerk',
-                    headerTitle: 'text-center text-white',
-                    headerSubtitle:'text-gray-400',
-                    formFieldInput: 'border rounded px-3 py-2',
-                    formButtonPrimary: 'bg-primary_blue',
+                    },
+                    elements: {
+                      card: ' bg-transparent shadow-lg mt-20  relative z-30 ',
+                      footer: 'bg-transparent border-none clerk',
+                      headerTitle: ' text-center text-white ',
+                      headerSubtitle: 'text-gray-400 ',
+                      formFieldInput: 'border rounded px-3 py-2',
+                      formButtonPrimary: 'bg-primary_blue',
 
 
-                  },
-                }} 
-              fallbackRedirectUrl='/AdminDashboard' path="/AdminDashboard/sign-in" routing='path' /></div>
+                    },
+                  }}
+                  fallbackRedirectUrl='/AdminDashboard' path="/AdminDashboard/sign-in" routing='path' /></div>
             )
         }
 

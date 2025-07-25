@@ -54,8 +54,6 @@ const SignUppage = () => {
                   },
                   elements: {
                     card: 'bg-transparent shadow-lg  ',
-                    // This is the key change:
-                    // Target the entire footer container, set its background, and remove the top border
                     footer: 'bg-transparent border-none clerk',
                     headerTitle: 'text-center text-white',
                     headerSubtitle: 'text-gray-400',
