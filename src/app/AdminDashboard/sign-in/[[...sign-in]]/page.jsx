@@ -1,6 +1,6 @@
 "use client"
 import { SignIn, SignOutButton, useUser } from '@clerk/nextjs'
-import {  ArrowRightCircle } from 'lucide-react'
+import { ArrowRightCircle } from 'lucide-react'
 import Link from 'next/link'
 
 import React from 'react'
@@ -9,10 +9,10 @@ import React from 'react'
 const SignInpage = () => {
 
   const { user } = useUser()
-  console.log('user id :::::::', user)
+  // console.log('user id :::::::', user)
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-secondary_color bg-cover bg-center">
+    <div className="min-h-screen flex items-center justify-center bg-secondary_color bg-cover bg-center  z-0">
       <div className="bg-[url('/signIn-bg.png')]  bg-cover h-screen lg:w-1/2 hidden lg:flex justify-center items-center ">
         <div>
           <p className='  font-semibold text-center tracking-[0.4rem] text-white text-2xl'>INSPIRED BY THE FUTURE: </p>
@@ -38,8 +38,8 @@ const SignInpage = () => {
 
                 <p className='mt-4'>OR</p>
                 <div className='text-gray-400  flex m-auto w-full mt-3'>
-                  <SignOutButton>
-                    <button className='w-full flex items-center justify-center gap-1'>Sign Out  <ArrowRightCircle size={18} style={{marginTop:'5px'}} />
+                  <SignOutButton redirectUrl='/AdminDashboard'>
+                    <button className='w-full flex items-center justify-center gap-1'>Sign Out  <ArrowRightCircle size={18} style={{ marginTop: '5px' }} />
                     </button>
                   </SignOutButton>
 
@@ -49,22 +49,29 @@ const SignInpage = () => {
               </div>
 
             </div>
-          ) : (<SignIn
+          ) :
 
-            appearance={{
-              variables: {
+            (
+              <div className='z-0'>  
+                <SignIn
 
-              },
-              elements: {
-                card: 'bg-transparent shadow-lg ',
-                footer: 'bg-transparent border-none clerk',
-                headerTitle: 'text-center text-white',
-                formFieldInput: 'border rounded px-3 py-2',
-                formButtonPrimary: 'bg-primary_blue',
+                appearance={{
+                  variables: {
+
+                  },
+                  elements: {
+                    card: 'bg-transparent shadow-lg mt-20  ',
+                    footer: 'bg-transparent border-none clerk',
+                    headerTitle: 'text-center text-white',
+                    headerSubtitle:'text-gray-400',
+                    formFieldInput: 'border rounded px-3 py-2',
+                    formButtonPrimary: 'bg-primary_blue',
 
 
-              },
-            }} path="/AdminDashboard/sign-in" routing='path' />)
+                  },
+                }} 
+              fallbackRedirectUrl='/AdminDashboard' path="/AdminDashboard/sign-in" routing='path' /></div>
+            )
         }
 
       </div>

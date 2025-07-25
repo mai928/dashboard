@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "./globals.css";
 
 export default function Home() {
 	return (
@@ -6,7 +7,7 @@ export default function Home() {
 			<div className=" bg-root px-28 py-32 rounded-3xl shadow-lg">
         <div className="text-center text-black">
         			<h1 className="text-3xl font-bold ">Welcome to the Project</h1>
-				<p>Choose where you want to go</p>  
+				<p className="text-gray-700 text-sm mt-2">Choose where you want to go</p>  
         </div>
 	
 

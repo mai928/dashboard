@@ -33,7 +33,7 @@ const SignUppage = () => {
 
                 <p className='mt-4'>OR</p>
                 <div className='text-gray-400  flex m-auto w-full mt-3'>
-                  <SignOutButton>
+                  <SignOutButton redirectUrl='/AdminDashboard'>
                     <button className='w-full flex items-center justify-center gap-1'>Sign Out  <ArrowRightCircle size={18} style={{ marginTop: '5px' }} />
                     </button>
                   </SignOutButton>
@@ -44,24 +44,33 @@ const SignUppage = () => {
               </div>
 
             </div>
-          ) : (<SignUp
+          ) : (
+            <div className='mt-20'>
+              <SignUp
 
-            appearance={{
-              variables: {
+                appearance={{
+                  variables: {
 
-              },
-              elements: {
-                card: 'bg-transparent shadow-lg  ',
-                // This is the key change:
-                // Target the entire footer container, set its background, and remove the top border
-                footer: 'bg-transparent border-none clerk',
-                headerTitle: 'text-center text-white',
-                formFieldInput: 'border rounded px-3 py-2',
-                formButtonPrimary: 'bg-primary_blue',
+                  },
+                  elements: {
+                    card: 'bg-transparent shadow-lg  ',
+                    // This is the key change:
+                    // Target the entire footer container, set its background, and remove the top border
+                    footer: 'bg-transparent border-none clerk',
+                    headerTitle: 'text-center text-white',
+                    headerSubtitle: 'text-gray-400',
+
+                    formFieldInput: 'border rounded px-3 py-2',
+                    formButtonPrimary: 'bg-primary_blue',
+                    dividerText: 'text-white',
 
 
-              },
-            }} path="/AdminDashboard/sign-up" routing="path" />)
+                  },
+                }} fallbackRedirectUrl='/AdminDashboard' path="/AdminDashboard/sign-up" routing="path" />
+
+            </div>
+
+          )
         }
 
       </div>

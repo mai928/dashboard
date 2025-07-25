@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import Sidebar from './Sidebar'
 import Navbar from './Navbar'
 import { motion } from 'framer-motion'
+import AuthNav from './AuthNav'
 
 const Layout = ({ children }) => {
   const pathname = usePathname()
@@ -16,6 +17,7 @@ const Layout = ({ children }) => {
   if (isAuthPage) {
     return (
       <div className="min-h-screen flex flex-col">
+        <AuthNav/>
         <main className="flex-1">{children}</main>
       </div>
     )

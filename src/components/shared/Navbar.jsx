@@ -70,13 +70,13 @@ export default function Navbar({ openMinSideBar, setHandleMinSideBar }) {
           <div className="flex items-center gap-4"> <div>{profileIcon('#fff')}</div>
             <ClerkLoaded>
               <div className="text-sm font-semibold">
-                <SignedOut>
+                <SignedOut >
                   <div className=" text-white">
-                    <SignInButton />
+                    <SignInButton  />
                   </div>
                 </SignedOut>
-                <SignedIn>
-                  <UserButton />
+                <SignedIn >
+                  <UserButton/>
                 </SignedIn>
               </div>
             </ClerkLoaded>

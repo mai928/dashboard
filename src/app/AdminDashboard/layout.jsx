@@ -1,7 +1,7 @@
 import { Inter as FontSans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Layout from "@/components/shared/Layout";
-import '../../app/globals.css'
+// import '../../app/globals.css'
 
 // 1. Setup the stable Inter font
 const fontSans = FontSans({

@@ -34,8 +34,12 @@ body {
 }
 
 .clerk {
-  display: contents;
+  display: none;
 }
+/* .cl-internal-zar2af{
+ z-index: 0;
+ background-color: green;
+} */
 
 .cl-socialButtonsIconButton__github {
   background-color: #fff !important;
